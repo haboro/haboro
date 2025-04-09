@@ -1,7 +1,7 @@
 <style>
   .back-button {
-    display: block;
-    position: fixed;
+    display: flex;
+    position: fixed; !important
     bottom: 20px;
     left: 20px;
     z-index: 10;
