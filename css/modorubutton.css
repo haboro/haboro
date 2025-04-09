@@ -9,7 +9,7 @@
   }
 
   .back-icon-wrapper {
-    position: relative;
+    position: fixed;
     display: inline-block;
   }
 
