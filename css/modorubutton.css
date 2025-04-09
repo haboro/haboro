@@ -1,4 +1,6 @@
 <style>
+
+
   .back-icon-wrapper {
     position: fixed;
     bottom: 20px;
@@ -17,7 +19,7 @@
 
   .back-label {
      position: fixed;
-    bottom: 20px;
+    bottom: 90px;
     left: 20px;
     transform: translate(-50%, 10px);
     opacity: 0;
