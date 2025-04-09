@@ -43,5 +43,31 @@ updateElapsedTime();
   <ul>
     <li><a href="music/music_hub.html">音楽についての記事</a></li>
   </ul>
+
+
+
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    font-family: sans-serif;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("images/2409inao.jpg");
+    background-size: cover;
+    background-position: center;
+    opacity: 0.6; /* ここで薄さを調整 */
+    z-index: -1;
+  }
+</style>
+
+  
 </body>
 </html>
