@@ -1,0 +1,51 @@
+<style>
+  .back-button {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 10;
+    text-decoration: none;
+  }
+
+  .back-icon-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+
+  .back-icon-wrapper img {
+    width: 60px;
+    transition: transform 0.3s ease;
+  }
+
+  .back-icon-wrapper:hover img {
+    transform: scale(1.2);
+  }
+
+  .back-label {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translate(-50%, 10px);
+    opacity: 0;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 8px 12px;
+    border-radius: 10px;
+    font-size: 18px;
+    color: #333;
+    font-family: sans-serif;
+    white-space: nowrap;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+  }
+
+  /* ぷかぷか浮かぶアニメーション */
+  @keyframes floatUp {
+    0%, 100% { transform: translate(-50%, -5px); }
+    50%      { transform: translate(-50%, -12px); }
+  }
+
+  .back-icon-wrapper:hover .back-label {
+    opacity: 1;
+    animation: floatUp 1.6s ease-in-out infinite;
+  }
+</style>
