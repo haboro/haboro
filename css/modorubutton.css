@@ -5,6 +5,7 @@
     left: 20px;
     z-index: 10;
     text-decoration: none;
+     display: block;
   }
 
   .back-icon-wrapper {
