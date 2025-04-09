@@ -3,32 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <title>音楽についての記事</title>
-  <style>
+<style>
   .back-button {
     position: fixed;
     bottom: 20px;
     left: 20px;
     z-index: 10;
+    text-decoration: none;
   }
-      .icon-wrapper {
+
+  .back-icon-wrapper {
     position: relative;
     display: inline-block;
   }
 
-  .icon-wrapper img {
+  .back-icon-wrapper img {
     width: 60px;
     transition: transform 0.3s ease;
   }
 
-  .icon-wrapper:hover img {
+  .back-icon-wrapper:hover img {
     transform: scale(1.2);
   }
 
-  .hover-text {
+  .back-label {
     position: absolute;
     bottom: 100%;
     left: 50%;
-    transform: translateX(-50%) translateY(10px);
+    transform: translate(-50%, 10px);
     opacity: 0;
     background: rgba(255, 255, 255, 0.7);
     padding: 4px 8px;
@@ -37,29 +39,22 @@
     color: #333;
     font-family: sans-serif;
     white-space: nowrap;
-    transition: all 0.3s ease;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
   }
 
-  .icon-wrapper:hover .hover-text {
+  /* ぷかぷか浮かぶアニメーション */
+  @keyframes floatUp {
+    0%, 100% { transform: translate(-50%, -5px); }
+    50%      { transform: translate(-50%, -12px); }
+  }
+
+  .back-icon-wrapper:hover .back-label {
     opacity: 1;
-    transform: translateX(-50%) translateY(-5px);
-
-      /* アニメーション */
-  @keyframes float {
-    0%, 100% {
-      transform: translateX(-50%) translateY(-5px);
-    }
-    50% {
-      transform: translateX(-50%) translateY(-10px);
-    }
-  }
-
-  .icon-wrapper:hover .hover-text {
-    opacity: 1;
-    animation: float 1.5s ease-in-out infinite;
-  }
+    animation: floatUp 1.6s ease-in-out infinite;
   }
 </style>
+
 </head>
 <body>
   <h1>音楽についての記事</h1>
@@ -72,9 +67,9 @@
   -->
   
 <a href="../index.html" class="back-button">
-  <div class="icon-wrapper">
+  <div class="back-icon-wrapper">
     <img src="../images/homura_icon.png" alt="Zurück" style="width:70px; height:auto;"/>
-    <span class="hover-text">Zurück</span>
+    <span class="back-label">Zurück</span>
   </div>
 </a>
 </body>
