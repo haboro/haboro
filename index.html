@@ -2,23 +2,43 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>私のGitHubページ</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      line-height: 1.6;
-      padding: 2rem;
-      background-color: #f9f9f9;
-    }
-    h1 {
-      color: #333;
-    }
-  </style>
+  <title>記事一覧</title>
 </head>
 <body>
-  <h1>ようこそ！</h1>
-  <p>これはGitHub Pagesで公開された、シンプルなHTMLページです。</p>
-  <p>好きな内容をここに追加して、自分だけのポートフォリオにできます。</p>
+  <h1>記事一覧</h1>
+
+  
+  <h4>2025年4月9日14:35 ページ作成記念</h4>
+  <p id="timer">このページができてからの経過時間を計算中...</p>
+<script>
+// 開始日時（あなたが指定した時間）
+const createdAt = new Date("2025-04-09T14:35:00");
+// 経過時間を表示する関数
+function updateElapsedTime() {
+  const now = new Date();
+  let diff = Math.floor((now - createdAt) / 1000); // 秒単位の差
+
+  const days = Math.floor(diff / (60 * 60 * 24));
+  diff %= (60 * 60 * 24);
+
+  const hours = Math.floor(diff / (60 * 60));
+  diff %= (60 * 60);
+
+  const minutes = Math.floor(diff / 60);
+  const seconds = diff % 60;
+
+  document.getElementById("timer").textContent =
+    `📅 このページができてから：${days}日 ${hours}時間 ${minutes}分 ${seconds}秒`;
+}
+// 1秒ごとに更新
+setInterval(updateElapsedTime, 1000);
+// 初回表示
+updateElapsedTime();
+</script>
+  
+  <ul>
+    <li><a href="articles/article1.html">記事①: はじめてのGitHub Pages</a></li>
+    <li><a href="articles/article2.html">記事②: HTMLの基本</a></li>
+  </ul>
 </body>
 </html>
