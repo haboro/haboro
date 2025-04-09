@@ -1,16 +1,19 @@
 <style>
 
+
+
+  .back-icon-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+
+
   .back-button {
     position: fixed;
     bottom: 20px;
     left: 20px;
     z-index: 10;
     text-decoration: none;
-  }
-
-  .back-icon-wrapper {
-    position: relative;
-    display: inline-block;
   }
 
   .back-icon-wrapper img {
