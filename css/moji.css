@@ -1,24 +1,13 @@
-<<<<<<< HEAD
-<style>
 
-@font-face {
-  font-family: 'JNR';
-  src: url(../fonts/JNRfont_n.ttf) format("truetype");
-=======
+
 
 
 @font-face {
   font-family: 'JNR';
   src: url(../font/JNRfont_n.ttf) format("truetype");
->>>>>>> 20ce644d4d231cc0b6742af7bfddae80cc9a0bb2
+
 }
 .JNR {
   font-family: 'JNR';
 }
 
-
-<<<<<<< HEAD
-
-</style>
-=======
->>>>>>> 20ce644d4d231cc0b6742af7bfddae80cc9a0bb2
