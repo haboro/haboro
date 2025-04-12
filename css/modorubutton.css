@@ -57,7 +57,7 @@
 .583left {
   width: 250px; /* お好みで幅調整 */
   height: 100vh; /* 画面の高さに合わせる */
-  background-image: url('images/583.png'); /* パスを調整してください */
+  background-image: url('../images/583.png'); /* パスを調整してください */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
