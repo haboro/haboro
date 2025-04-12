@@ -30,11 +30,33 @@
     opacity: 1; /* ここで薄さを調整 */
     z-index: -1;
   }
+.houkoumaku {
+      background-image: url("images/houkoumaku.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 600px; /* 幅は画像に応じて調整 */
+      height: 150px; /* 高さも画像に合わせて */
+      position: relative;
+      margin-top: 20px;
+    }
 
+    .houkoumaku p {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      margin: 0;
+      font-size: 300%;
+      font-weight: bold;
+      color: #000000; /* 濃い色に調整 */
+    }
 </style>
 </head>
 <body>
-  <p1 class="classJNR" style="font-size: 400%;">記事一覧</p1>
+   <div class="houkoumaku">
+  <p1 class="classJNR midashi" style="font-size: 400%;">記事一覧</p1>
+     </div>
 
   
   <h4>2025年4月9日14:35 ページ作成記念</h4>
@@ -65,8 +87,6 @@ setInterval(updateElapsedTime, 1000);
 updateElapsedTime();
 </script>
 
-   <img src="images/.png" class="583left">
- <div class="583left">
   
   <ul class="overlay_box">
     <li><a href="articles/article1.html">記事①: はじめてのGitHub Pages</a></li>
