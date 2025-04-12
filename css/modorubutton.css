@@ -54,31 +54,15 @@
     animation: floatUp 1.6s ease-in-out infinite;
   }
 
-.overlay-box {
-  position: absolute;
-  top: 100px;
-  left: 50px;
-  width: 500px;
-  padding: 20px;
-  color: white;
-  border-radius: 8px;
-
-  /* 背景画像とスタイル */
-  background-image: url('../images/583.png'); /* パスに合わせて修正してください */
+.583left {
+  width: 250px; /* お好みで幅調整 */
+  height: 100vh; /* 画面の高さに合わせる */
+  background-image: url('images/583.png'); /* パスを調整してください */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-
-  /* 背景を暗くする半透明フィルター（文字の視認性を上げる） */
-  background-color: rgba(35, 64, 89, 0.6); /* ← 上から重ねる色（暗くする効果） */
-
-  /* 背景画像と背景色を同時に使うために以下が必要 */
-  background-blend-mode: multiply;
+  flex-shrink: 0; /* 小さくならないように固定 */
 }
-
-
-
-
 
 
 </style>
