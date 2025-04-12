@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>記事一覧</title>
   <link rel="stylesheet" type="text/css" href="css/moji.css">
+  <link rel="stylesheet" type="text/css" href="css/modorubutton.css">
 
   <style>
   body {
@@ -28,8 +29,8 @@
     background-position: center;
     opacity: 0.9; /* ここで薄さを調整 */
     z-index: -1;
-
   }
+
 </style>
 </head>
 <body>
@@ -64,7 +65,7 @@ setInterval(updateElapsedTime, 1000);
 updateElapsedTime();
 </script>
   
-  <ul>
+  <ul class="overlay_box">
     <li><a href="articles/article1.html">記事①: はじめてのGitHub Pages</a></li>
     <li><a href="articles/article2.html">記事②: HTMLの基本</a></li>
   </ul>
