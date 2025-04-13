@@ -6,6 +6,7 @@
   border-radius: 8px; /* optional: 角丸 */
 }
 
+
 @font-face {
   font-family: 'JNR';
   src: url(../font/JNRfont_n.ttf) format("truetype");
