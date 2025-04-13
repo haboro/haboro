@@ -32,13 +32,16 @@
   }
 .houkoumaku {
       background-image: url("images/houkoumaku.png");
-      background-size: contain;
+      background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
-      width: 600px; /* 幅は画像に応じて調整 */
-      height: 150px; /* 高さも画像に合わせて */
+      width: 325px; /* 幅は画像に応じて調整 */
+      height: 125px; /* 高さも画像に合わせて */
       position: relative;
-      
+      font-feature-settings: "palt";
+  place-items: center;
+   letter-spacing: 0.1em;
+   text-align: center;
     }
 
     .houkoumaku p {
@@ -47,18 +50,21 @@
       left: 50%;
       transform: translate(-50%, -50%);
       margin: 0;
-      font-size: 300%;
-      font-weight: bold;
+     white-space: nowrap;
       color: #000000; /* 濃い色に調整 */
     }
 </style>
 </head>
 <body>
-   <div class="houkoumaku">
-  <p1 class="classJNR" style="font-size: 400%;">記事一覧</p1>
-     </div>
 
-  
+<div class="houkoumaku">
+  <p class="classJNR">
+    <span style="font-size: 320%; line-height: 80%;">ようこそ</span><br>
+    <span style="font-size: 120%; letter-spacing: 0.3em;">WELCOME</span>
+  </p>
+</div>
+
+<div class="info-box">
   <h4>2025年4月9日14:35 ページ作成記念</h4>
   <p id="timer">このページができてからの経過時間を計算中...</p>
 <script>
@@ -69,6 +75,9 @@ function updateElapsedTime() {
   const now = new Date();
   let diff = Math.floor((now - createdAt) / 1000); // 秒単位の差
 
+  const years = Math.floor(diff / (365*60*60*24));
+  diff %= (365*60*60*24);
+  
   const days = Math.floor(diff / (60 * 60 * 24));
   diff %= (60 * 60 * 24);
 
@@ -79,21 +88,25 @@ function updateElapsedTime() {
   const seconds = diff % 60;
 
   document.getElementById("timer").textContent =
-    `📅 このページができてから：${days}日 ${hours}時間 ${minutes}分 ${seconds}秒`;
+    `📅 このページができてから：${years}年 ${days}日 ${hours}時間 ${minutes}分 ${seconds}秒`;
 }
 // 1秒ごとに更新
 setInterval(updateElapsedTime, 1000);
 // 初回表示
 updateElapsedTime();
 </script>
+</div>
 
-  
+<div class="info-box">
   <ul class="overlay_box">
     <li><a href="articles/article1.html">記事①: はじめてのGitHub Pages</a></li>
     <li><a href="articles/article2.html">記事②: HTMLの基本</a></li>
   </ul>
   <ul>
     <li><a href="music/music_hub.html">音楽についての記事</a></li>
+    <li><a href="travel/travel_hub.html">旅行記</a></li>
+    <li><a href="book/book_hub.html">読書記</a></li>
+    <li><a href="other/other_hub.html">я чайка</a></li>
   </ul>
 </div>
 
