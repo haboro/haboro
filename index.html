@@ -64,7 +64,8 @@
   </p>
 
 </div>
-  
+
+  <div class="info-box">
   <h4>2025年4月9日14:35 ページ作成記念</h4>
   <p id="timer">このページができてからの経過時間を計算中...</p>
 <script>
@@ -75,6 +76,9 @@ function updateElapsedTime() {
   const now = new Date();
   let diff = Math.floor((now - createdAt) / 1000); // 秒単位の差
 
+  const years = Math.floor(diff / (365*60*60*24));
+  diff %= (365*60*&0*24);
+  
   const days = Math.floor(diff / (60 * 60 * 24));
   diff %= (60 * 60 * 24);
 
@@ -85,14 +89,14 @@ function updateElapsedTime() {
   const seconds = diff % 60;
 
   document.getElementById("timer").textContent =
-    `📅 このページができてから：${days}日 ${hours}時間 ${minutes}分 ${seconds}秒`;
+    `📅 このページができてから：${years}年 ${days}日 ${hours}時間 ${minutes}分 ${seconds}秒`;
 }
 // 1秒ごとに更新
 setInterval(updateElapsedTime, 1000);
 // 初回表示
 updateElapsedTime();
 </script>
-
+</div>
   
   <ul class="overlay_box">
     <li><a href="articles/article1.html">記事①: はじめてのGitHub Pages</a></li>
