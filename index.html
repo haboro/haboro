@@ -77,7 +77,7 @@ function updateElapsedTime() {
   let diff = Math.floor((now - createdAt) / 1000); // 秒単位の差
 
   const years = Math.floor(diff / (365*60*60*24));
-  diff %= (365*60*&0*24);
+  diff %= (365*60*60*24);
   
   const days = Math.floor(diff / (60 * 60 * 24));
   diff %= (60 * 60 * 24);
