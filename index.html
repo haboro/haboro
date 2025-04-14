@@ -55,6 +55,17 @@
      white-space: nowrap;
       color: #000000; /* 濃い色に調整 */
     }
+ .bg-toggle-button {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #ffffffcc;
+      border: 2px solid #000;
+      border-radius: 5px;
+      cursor: pointer;
+      vertical-align: middle;
+    }
+    
 </style>
 </head>
 <body>
@@ -112,7 +123,24 @@ updateElapsedTime();
     <li><a href="omoide/omoide_hub.html">思い出お～い天北線</a></li>
   </ul>
 </div>
+<p></p>
+  <div>
+    <button class="bg-toggle-button" onclick="toggleBackground()">背景切り替え</button>
+  </div>
 
+ <script>
+    let isDefault = true;
+
+    function toggleBackground() {
+      const body = document.body;
+      if (isDefault) {
+        body.style.backgroundImage = 'url("images/485.png")';
+      } else {
+        body.style.backgroundImage = 'url("images/583.png")';
+      }
+      isDefault = !isDefault;
+    }
+  </script>
   
 </body>
 </html>
