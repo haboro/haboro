@@ -2,34 +2,47 @@
 
 body {
   font-family: sans-serif;
-  text-align: center;
   background-color: #f9f9f9;
   margin: 0;
   padding: 20px;
+  text-align: center;
 }
 
 h1 {
-  margin-bottom: 30px;
+  margin-bottom: 40px;
+}
+
+.weekday-section {
+  margin-bottom: 40px;
+}
+
+.weekday-label {
+  font-weight: bold;
+  font-size: 18px;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+  margin-bottom: 15px;
 }
 
 .menu-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
   gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .menu-card {
   background: white;
   border: 1px solid #ccc;
-  width: 200px;
   padding: 10px;
   box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
 }
 
 .menu-card img {
   width: 100%;
-  height: auto;
+  height: 120px;
   object-fit: cover;
   margin-bottom: 10px;
 }
