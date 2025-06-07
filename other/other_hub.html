@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>離席中ステータス</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f7f7f7;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .clock {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .display-box {
+      text-align: center;
+      background-color: white;
+      border: 2px solid #333;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      font-size: 24px;
+      width: 80%;
+      max-width: 600px;
+      margin-bottom: 80px;
+    }
+
+    .input-area {
+      position: fixed;
+      bottom: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .input-area input {
+      font-size: 16px;
+      padding: 10px;
+      width: 150px;
+    }
+
+    .input-area button {
+      font-size: 16px;
+      padding: 10px 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="clock" id="clock"></div>
+
+  <div class="display-box">
+    <div>🪑 離席中です</div><br>
+    <div id="where">📍 どこへ: -</div>
+    <div id="with">👥 だれと: -</div>
+    <div id="back">⏰ 戻る予定: -</div>
+  </div>
+
+  <div class="input-area">
+    <input type="text" id="whereInput" placeholder="どこへ？">
+    <input type="text" id="withInput" placeholder="だれと？">
+    <input type="text" id="backInput" placeholder="どれくらい？">
+    <button onclick="update()">更新</button>
+    <button onclick="reset()">リセット</button>
+    <button onclick="toggleFullscreen()">全画面</button>
+  </div>
+
+  <script>
+    function update() {
+      document.getElementById('where').textContent = "📍 どこへ: " + document.getElementById('whereInput').value;
+      document.getElementById('with').textContent = "👥 だれと: " + document.getElementById('withInput').value;
+      document.getElementById('back').textContent = "⏰ 戻る予定: " + document.getElementById('backInput').value;
+    }
+
+    function reset() {
+      document.getElementById('where').textContent = "📍 どこへ: -";
+      document.getElementById('with').textContent = "👥 だれと: -";
+      document.getElementById('back').textContent = "⏰ 戻る予定: -";
+      document.getElementById('whereInput').value = "";
+      document.getElementById('withInput').value = "";
+      document.getElementById('backInput').value = "";
+    }
+
+    function toggleFullscreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen();
+      } else {
+        document.exitFullscreen();
+      }
+    }
+
+    function showClock() {
+      const now = new Date();
+      const time = now.toLocaleTimeString('ja-JP');
+      document.getElementById('clock').textContent = time;
+    }
+    setInterval(showClock, 1000);
+    showClock();
+  </script>
+
+</body>
+</html>
