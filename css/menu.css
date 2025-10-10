@@ -1,113 +1,63 @@
-<style>
-
-:root{
-  --page-max: 1200px;
-  --gap: 20px;
-  --card-pad: 10px;
-  --radius: 10px;
-  --border: 1px solid #ccc;
-  --shadow: 2px 2px 5px rgba(0,0,0,0.1);
-  --muted: #666;
-}
-
-*{ box-sizing: border-box; }
-
-body{
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Hiragino Sans",
-               "Noto Sans JP", "Yu Gothic", sans-serif;
+/* 元のスタイルを踏襲 */
+body {
+  font-family: sans-serif;
   background-color: #f9f9f9;
   margin: 0;
-  color: #222;
-}
-
-.page{
-  max-width: var(--page-max);
-  margin: 0 auto;
-  padding: 20px 16px 28px;
+  padding: 20px;
   text-align: center;
 }
 
-h1{ margin: 0 0 6px; font-size: 22px; }
-h2{ margin: 0 0 24px; font-size: 18px; color:#444; }
-
-.note{
-  color: var(--muted);
-  margin: 6px 0 18px;
-  font-size: 14px;
-}
-
-.weekday-section,
-.daily-section{
+h1 {
   margin-bottom: 40px;
 }
 
-.weekday-label{
+.weekday-section {
+  margin-bottom: 40px;
+}
+
+.weekday-label {
   font-weight: bold;
   font-size: 18px;
   border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
   padding: 10px 0;
-  margin: 0 auto 15px;
-  max-width: var(--page-max);
+  margin-bottom: 15px;
 }
 
-/* ===== グリッド（共通） ===== */
-.menu-grid{
+.menu-grid {
   display: grid;
-  gap: var(--gap);
-  width: 100%;
-  max-width: var(--page-max);
+  grid-template-columns: repeat(5, 1fr); /* ←曜日は5列（元のまま） */
+  gap: 20px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
-/* 定番は4列、曜日は5列 */
-.daily-section .menu-grid{
-  grid-template-columns: repeat(4, minmax(0,1fr));
-}
-.weekday-section .menu-grid{
-  grid-template-columns: repeat(5, minmax(0,1fr));
+/* ★追加：定番は4列（他はそのまま） */
+.daily-section .menu-grid {
+  grid-template-columns: repeat(4, 1fr);
 }
 
-/* ===== カード ===== */
-.menu-card{
-  background: #fff;
-  border: var(--border);
-  border-radius: var(--radius);
-  padding: var(--card-pad);
-  box-shadow: var(--shadow);
-  text-align: left;
+.menu-card {
+  background: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
 }
 
-.menu-card img{
+.menu-card img {
   width: 100%;
-  height: 120px;            /* 既存に合わせた高さ */
+  height: 120px;
   object-fit: cover;
-  border-radius: 8px;
-  background: #fafafa;
   margin-bottom: 10px;
 }
 
-.menu-card .name{
+.menu-card a {
   font-weight: bold;
-  margin: 4px 0 2px;
-  font-size: 15px;
-}
-
-.menu-card p{
-  margin: 2px 0;
-  font-size: 14px;
-}
-
-.menu-card a{
-  color: #333;
   text-decoration: none;
+  color: #333;
 }
 
-.menu-card a:hover{
-  color: #c00;
+.menu-card a:hover {
+  color: red;
 }
-
-.spicy, .price{ color: var(--muted); }
-
-
 </style>
