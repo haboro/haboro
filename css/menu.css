@@ -1,4 +1,5 @@
 <style>
+
 body {
   font-family: sans-serif;
   background-color: #f9f9f9;
@@ -26,15 +27,10 @@ h1 {
 
 .menu-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr); /* ←曜日は5列（元のまま） */
+  grid-template-columns: repeat(5, 1fr);
   gap: 20px;
   max-width: 1200px;
   margin: 0 auto;
-}
-
-/* ★追加：定番は4列（他はそのまま） */
-.daily-section .menu-grid {
-  grid-template-columns: repeat(4, 1fr);
 }
 
 .menu-card {
@@ -60,4 +56,6 @@ h1 {
 .menu-card a:hover {
   color: red;
 }
+
+
 </style>
