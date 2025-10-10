@@ -3,20 +3,79 @@
 <head>
   <meta charset="UTF-8" />
   <title>正宗川菜 川外川 メニュー</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-  <link rel="stylesheet" href="menu.css" />
-  <link rel="stylesheet" type="text/css" href="../css/menu.css">
-  <link rel="stylesheet" type="text/css" href="../css/modorubutton.css">
+  <!-- 外部CSSを使う場合は下2行を活かす／内蔵<style>を削除してOK -->
+  <!-- <link rel="stylesheet" href="menu.css" /> -->
+  <link rel="stylesheet" type="text/css" href="../css/menu.css" />
+  <link rel="stylesheet" type="text/css" href="../css/modorubutton.css" />
+
+  <style>
+    /* ========== 共通レイアウト（同一幅を保証） ========== */
+    :root{
+      --page-max: 1200px; /* ★曜日5列に合わせた最大幅（必要なら調整） */
+      --gap: 14px;
+      --card-pad: 8px;
+      --radius: 10px;
+      --shadow: 0 2px 10px rgba(0,0,0,.06);
+      --border: 1px solid #e8e8e8;
+      --muted: #666;
+    }
+    body{ margin:0; font-family:system-ui, -apple-system, "Segoe UI", Roboto, "Hiragino Sans", "Noto Sans JP", "Yu Gothic", sans-serif; line-height:1.6; color:#222;}
+    .page{ max-width:var(--page-max); margin:auto; padding:20px 16px; }
+    h1{ font-size:22px; margin:6px 0 4px; }
+    h2{ font-size:18px; margin:0 0 16px; color:#444; }
+
+    /* ラベル・注記 */
+    .weekday-label{
+      display:inline-block; padding:.35em .7em; border-radius:999px;
+      background:#f2f2f2; border:var(--border); font-weight:600; margin:10px 0 8px;
+    }
+    .note{ color:var(--muted); margin:.3rem 0 1rem; }
+
+    /* グリッド（コンテナ幅は .page が担保） */
+    .menu-grid{
+      display:grid; gap:var(--gap);
+    }
+    /* 定番は4列 */
+    .daily-section .menu-grid{
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+    /* 曜日は5列 */
+    .weekday-section .menu-grid{
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+
+    /* カード */
+    .menu-card{
+      background:#fff; border:var(--border); border-radius:var(--radius);
+      box-shadow:var(--shadow); padding:var(--card-pad); display:flex; flex-direction:column; gap:6px;
+    }
+    .menu-card img{
+      width:100%; height:140px; object-fit:cover; border-radius:8px; background:#fafafa;
+    }
+    .menu-card .name{ font-weight:600; margin:.2rem 0 .1rem; }
+    .menu-card p{ margin:.05rem 0; font-size:14px; }
+    .spicy, .price{ color:var(--muted); }
+
+    /* 戻りボタン（既存CSSがあるならそちら優先でOK） */
+    .back-button{
+      display:inline-flex; align-items:center; gap:.6rem; margin:24px 0 12px;
+      text-decoration:none; color:#0366d6; font-weight:600;
+    }
+    .back-icon-wrapper img{ width:24px; height:24px; border-radius:50%; }
+  </style>
 </head>
+
 <body>
   <div class="page">
     <h1>川外川　菜单评论</h1>
     <h2>川外川 定食メニューレビュー</h2>
 
-    <!-- ===== 毎日定番（4列） ===== -->
+    <!-- ========== 毎日定番（4列） ========== -->
     <section class="daily-section">
       <div class="weekday-label">毎日定番</div>
-      <p class="note">※定食はすべて「ライス・スープ・サラダ・前菜付き」。ライスお替り無料。</p>
+      <p class="note">※定食は全て「ライス・スープ・サラダ・前菜付き」。ライスお替り無料。</p>
 
       <div class="menu-grid">
         <!-- 01 -->
@@ -89,7 +148,7 @@
           <p class="spicy">辛さ: ★★☆☆☆（未確認）</p>
           <p class="price">値段: ？？？円（未確認）</p>
         </div>
-        <!-- 11（修正済み：魚香茄子 → 魚の四川風高菜煮込み） -->
+        <!-- 11 ＊修正：魚香茄子 → 魚の四川風高菜煮込み -->
         <div class="menu-card">
           <img src="../images/daily_fish_takana.jpg" alt="魚の四川風高菜煮込み" />
           <p class="name"><a href="menu_fish_takana.html">魚の四川風高菜煮込み</a></p>
@@ -99,11 +158,11 @@
       </div>
     </section>
 
-    <!-- ===== 曜日メニュー（5列） ===== -->
-
+    <!-- ========== 曜日メニュー（5列） ========== -->
     <section class="weekday-section">
       <div class="weekday-label">月曜日</div>
       <div class="menu-grid">
+        <!-- 既存の5列カード…（省略なく全部残す） -->
         <div class="menu-card">
           <img src="../images/sample.jpg" alt="水煮肉片" />
           <p class="name"><a href="menu1.html">水煮肉片（豚肉四川風煮込み）</a></p>
@@ -291,5 +350,3 @@
   </div>
 </body>
 </html>
-
-
