@@ -1,61 +1,130 @@
-<style>
+/* =========================================================
+   menu.css (consolidated)
+   - 全体幅を共通化（max-width:1200px）
+   - 定番：4列 / 曜日：5列
+   - 戻るボタンの体裁もここに統合
+   ========================================================= */
 
-body {
-  font-family: sans-serif;
+:root{
+  --page-max: 1200px;
+  --gap: 20px;
+  --card-pad: 10px;
+  --radius: 10px;
+  --border: 1px solid #ccc;
+  --shadow: 2px 2px 5px rgba(0,0,0,0.1);
+  --muted: #666;
+}
+
+*{ box-sizing: border-box; }
+
+body{
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Hiragino Sans",
+               "Noto Sans JP", "Yu Gothic", sans-serif;
   background-color: #f9f9f9;
   margin: 0;
-  padding: 20px;
+  color: #222;
+}
+
+.page{
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding: 20px 16px 28px;
   text-align: center;
 }
 
-h1 {
+h1{ margin: 0 0 6px; font-size: 22px; }
+h2{ margin: 0 0 24px; font-size: 18px; color:#444; }
+
+.note{
+  color: var(--muted);
+  margin: 6px 0 18px;
+  font-size: 14px;
+}
+
+.weekday-section,
+.daily-section{
   margin-bottom: 40px;
 }
 
-.weekday-section {
-  margin-bottom: 40px;
-}
-
-.weekday-label {
+.weekday-label{
   font-weight: bold;
   font-size: 18px;
   border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
   padding: 10px 0;
-  margin-bottom: 15px;
+  margin: 0 auto 15px;
+  max-width: var(--page-max);
 }
 
-.menu-grid {
+/* ===== グリッド（共通） ===== */
+.menu-grid{
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 20px;
-  max-width: 1200px;
+  gap: var(--gap);
+  width: 100%;
+  max-width: var(--page-max);
   margin: 0 auto;
 }
 
-.menu-card {
-  background: white;
-  border: 1px solid #ccc;
-  padding: 10px;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+/* 定番は4列、曜日は5列 */
+.daily-section .menu-grid{
+  grid-template-columns: repeat(4, minmax(0,1fr));
+}
+.weekday-section .menu-grid{
+  grid-template-columns: repeat(5, minmax(0,1fr));
 }
 
-.menu-card img {
+/* ===== カード ===== */
+.menu-card{
+  background: #fff;
+  border: var(--border);
+  border-radius: var(--radius);
+  padding: var(--card-pad);
+  box-shadow: var(--shadow);
+  text-align: left;
+}
+
+.menu-card img{
   width: 100%;
-  height: 120px;
+  height: 120px;            /* 既存に合わせた高さ */
   object-fit: cover;
+  border-radius: 8px;
+  background: #fafafa;
   margin-bottom: 10px;
 }
 
-.menu-card a {
+.menu-card .name{
   font-weight: bold;
-  text-decoration: none;
+  margin: 4px 0 2px;
+  font-size: 15px;
+}
+
+.menu-card p{
+  margin: 2px 0;
+  font-size: 14px;
+}
+
+.menu-card a{
   color: #333;
+  text-decoration: none;
 }
 
-.menu-card a:hover {
-  color: red;
+.menu-card a:hover{
+  color: #c00;
 }
 
+.spicy, .price{ color: var(--muted); }
 
-</style>
+/* ===== 戻るボタン（簡易） ===== */
+.back-button{
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  margin: 8px 0 0;
+  text-decoration: none;
+  color: #0366d6;
+  font-weight: 600;
+}
+.back-icon-wrapper img{
+  width: 24px; height: 24px; border-radius: 50%;
+}
+.back-label{ line-height: 1; }
