@@ -3,336 +3,289 @@
 <head>
   <meta charset="UTF-8" />
   <title>正宗川菜 川外川 メニュー</title>
-  <!-- 既存CSSを流用（必要に応じて片方だけに統一可） -->
-  <link rel="stylesheet" href="menu.css" />
-  <link rel="stylesheet" type="text/css" href="../css/menu.css" />
-  <link rel="stylesheet" type="text/css" href="../css/modorubutton.css" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="menu.css" />
 </head>
-
 <body>
-  <h1>川外川　菜单评论</h1>
-  <h2>川外川 定食メニューレビュー</h2>
+  <div class="page">
+    <h1>川外川　菜单评论</h1>
+    <h2>川外川 定食メニューレビュー</h2>
 
-  <!-- ─────────────────────────────────────────────
-       毎日定番（＝毎日提供の定番メニュー）
-       画像と価格・辛さが確定次第、該当<p>を置換してください。
-       同じカード形式（.menu-card）で統一
-  ───────────────────────────────────────────── -->
-  <section class="daily-section">
-    <div class="weekday-label">毎日定番</div>
-    <p class="note">
-      ※定食は全て「ライス・スープ・サラダ・前菜付き」。ライスお替り無料。
-    </p>
-    <div class="menu-grid">
-      <!-- 1 -->
-      <div class="menu-card" data-origin="よだれ鶏/口水鶏">
-        <img src="../images/daily_yodare_chicken.jpg" alt="よだれ鶏" />
-        <p class="name"><a href="menu_yodare.html">よだれ鶏</a></p>
-        <p class="spicy">辛さ: ★★★☆☆（未確認）</p>
-        <p class="price">値段: ？？？円（未確認）</p>
+    <!-- ===== 毎日定番（4列） ===== -->
+    <section class="daily-section">
+      <div class="weekday-label">毎日定番</div>
+      <p class="note">※定食はすべて「ライス・スープ・サラダ・前菜付き」。ライスお替り無料。</p>
+
+      <div class="menu-grid">
+        <!-- 01 -->
+        <div class="menu-card" data-origin="口水鶏">
+          <img src="../images/daily_yodare_chicken.jpg" alt="よだれ鶏" />
+          <p class="name"><a href="menu_yodare.html">よだれ鶏</a></p>
+          <p class="spicy">辛さ: ★★★☆☆（未確認）</p>
+          <p class="price">値段: ？？？円（未確認）</p>
+        </div>
+        <!-- 02 -->
+        <div class="menu-card" data-origin="棒棒鶏">
+          <img src="../images/daily_banbanji.jpg" alt="バンバンジー" />
+          <p class="name"><a href="menu_banbanji.html">バンバンジー</a></p>
+          <p class="spicy">辛さ: ☆☆☆☆☆（未確認）</p>
+          <p class="price">値段: ？？？円（未確認）</p>
+        </div>
+        <!-- 03 -->
+        <div class="menu-card">
+          <img src="../images/daily_spare_rib.jpg" alt="スペアリブの香味煮込み" />
+          <p class="name"><a href="menu_spare_rib.html">スペアリブの香味煮込み</a></p>
+          <p class="spicy">辛さ: ☆☆☆☆☆（未確認）</p>
+          <p class="price">値段: ？？？円（未確認）</p>
+        </div>
+        <!-- 04 -->
+        <div class="menu-card">
+          <img src="../images/daily_mapo.jpg" alt="本場四川風麻婆豆腐" />
+          <p class="name"><a href="menu_mapo.html">本場四川風麻婆豆腐</a></p>
+          <p class="spicy">辛さ: ★★★★☆（未確認）</p>
+          <p class="price">値段: ？？？円（未確認）</p>
+        </div>
+        <!-- 05 -->
+        <div class="menu-card">
+          <img src="../images/daily_mala_pot.jpg" alt="マーラー香鍋" />
+          <p class="name"><a href="menu_mala_pot.html">マーラー香鍋</a></p>
+          <p class="spicy">辛さ: ★★★★☆（未確認）</p>
+          <p class="price">値段: ？？？円（未確認）</p>
+        </div>
+        <!-- 06 -->
+        <div class="menu-card">
+          <img src="../images/daily_subuta.jpg" alt="スブタ（酢豚）" />
+          <p class="name"><a href="menu_subuta.html">スブタ（酢豚）</a></p>
+          <p class="spicy">辛さ: ☆☆☆☆☆（未確認）</p>
+          <p class="price">値段: ？？？円（未確認）</p>
+        </div>
+        <!-- 07 -->
+        <div class="menu-card">
+          <img src="../images/daily_lamb.jpg" alt="ラム肉の鉄板焼き" />
+          <p class="name"><a href="menu_lamb.html">ラム肉の鉄板焼き</a></p>
+          <p class="spicy">辛さ: ★★☆☆☆（未確認）</p>
+          <p class="price">値段: ？？？円（未確認）</p>
+        </div>
+        <!-- 08 -->
+        <div class="menu-card">
+          <img src="../images/daily_karaage.jpg" alt="若鶏の唐揚げ" />
+          <p class="name"><a href="menu_karaage.html">若鶏の唐揚げ</a></p>
+          <p class="spicy">辛さ: ☆☆☆☆☆（未確認）</p>
+          <p class="price">値段: ？？？円（未確認）</p>
+        </div>
+        <!-- 09 -->
+        <div class="menu-card">
+          <img src="../images/daily_pig_ear.jpg" alt="豚ミミのラー油和え" />
+          <p class="name"><a href="menu_pig_ear.html">豚ミミのラー油和え</a></p>
+          <p class="spicy">辛さ: ★★☆☆☆（未確認）</p>
+          <p class="price">値段: ？？？円（未確認）</p>
+        </div>
+        <!-- 10 -->
+        <div class="menu-card">
+          <img src="../images/daily_ebi_chili.jpg" alt="エビのチリソース" />
+          <p class="name"><a href="menu_ebi_chili.html">エビのチリソース</a></p>
+          <p class="spicy">辛さ: ★★☆☆☆（未確認）</p>
+          <p class="price">値段: ？？？円（未確認）</p>
+        </div>
+        <!-- 11（修正済み：魚香茄子 → 魚の四川風高菜煮込み） -->
+        <div class="menu-card">
+          <img src="../images/daily_fish_takana.jpg" alt="魚の四川風高菜煮込み" />
+          <p class="name"><a href="menu_fish_takana.html">魚の四川風高菜煮込み</a></p>
+          <p class="spicy">辛さ: ★★★☆☆（未確認）</p>
+          <p class="price">値段: ？？？円（未確認）</p>
+        </div>
       </div>
+    </section>
 
-      <!-- 2 -->
-      <div class="menu-card" data-origin="棒棒鶏/バンバンジー">
-        <img src="../images/daily_banbanji.jpg" alt="バンバンジー" />
-        <p class="name"><a href="menu_banbanji.html">バンバンジー</a></p>
-        <p class="spicy">辛さ: ☆☆☆☆☆（未確認）</p>
-        <p class="price">値段: ？？？円（未確認）</p>
+    <!-- ===== 曜日メニュー（5列） ===== -->
+
+    <section class="weekday-section">
+      <div class="weekday-label">月曜日</div>
+      <div class="menu-grid">
+        <div class="menu-card">
+          <img src="../images/sample.jpg" alt="水煮肉片" />
+          <p class="name"><a href="menu1.html">水煮肉片（豚肉四川風煮込み）</a></p>
+          <p class="spicy">辛さ: （未確認）</p>
+          <p class="price">値段: 1100円</p>
+        </div>
+        <div class="menu-card">
+          <img src="../images/sample.jpg" alt="青椒肉絲" />
+          <p class="name"><a href="menu1.html">青椒肉丝</a></p>
+          <p class="spicy">辛さ: ☆☆☆☆☆</p>
+          <p class="price">値段: 980円</p>
+        </div>
+        <div class="menu-card">
+          <img src="../images/sample.jpg" alt="レバー四川風炒め" />
+          <p class="name"><a href="menu1.html">レバー四川風炒め</a></p>
+          <p class="spicy">辛さ: （未確認）</p>
+          <p class="price">値段: 1050円</p>
+        </div>
+        <div class="menu-card">
+          <img src="../images/sample.jpg" alt="豚肉とニンニクの芽炒め" />
+          <p class="name"><a href="menu1.html">豚肉とニンニクの芽炒め</a></p>
+          <p class="spicy">辛さ: ★★☆☆☆</p>
+          <p class="price">値段: 1050円</p>
+        </div>
+        <div class="menu-card">
+          <img src="../images/sample.jpg" alt="酱爆鸡丁" />
+          <p class="name"><a href="menu1.html">酱爆鸡丁（鶏肉甘味噌炒め）</a></p>
+          <p class="spicy">辛さ: （未確認）</p>
+          <p class="price">値段: 1050円</p>
+        </div>
       </div>
+    </section>
 
-      <!-- 3 -->
-      <div class="menu-card" data-origin="スペアリブの香味煮込み">
-        <img src="../images/daily_spare_rib.jpg" alt="スペアリブの香味煮込み" />
-        <p class="name"><a href="menu_spare_rib.html">スペアリブの香味煮込み</a></p>
-        <p class="spicy">辛さ: ☆☆☆☆☆（未確認）</p>
-        <p class="price">値段: ？？？円（未確認）</p>
+    <section class="weekday-section">
+      <div class="weekday-label">火曜日</div>
+      <div class="menu-grid">
+        <div class="menu-card">
+          <img src="../images/sample.jpg" alt="水煮魚" />
+          <p class="name"><a href="menu1.html">水煮鱼（魚四川風煮込み）</a></p>
+          <p class="spicy">辛さ: （未確認）</p>
+          <p class="price">値段: 1050円</p>
+        </div>
+        <div class="menu-card">
+          <img src="../images/魚香肉糸.jpg" alt="魚香肉絲" />
+          <p class="name"><a href="menu1.html">鱼香肉丝（豚肉細切り魚香炒め）</a></p>
+          <p class="spicy">辛さ: ★★★☆☆</p>
+          <p class="price">値段: 1050円</p>
+        </div>
+        <div class="menu-card">
+          <img src="../images/sample.jpg" alt="レバニラ炒め" />
+          <p class="name"><a href="menu1.html">レバニラ炒め</a></p>
+          <p class="spicy">辛さ: （未確認）</p>
+          <p class="price">値段: （未確認）</p>
+        </div>
+        <div class="menu-card">
+          <img src="../images/sample.jpg" alt="鶏肉四川風炒め" />
+          <p class="name"><a href="menu1.html">鶏肉四川風炒め</a></p>
+          <p class="spicy">辛さ: （未確認）</p>
+          <p class="price">値段: （未確認）</p>
+        </div>
+        <div class="menu-card">
+          <img src="../images/sample.jpg" alt="黒酢酢豚" />
+          <p class="name"><a href="menu1.html">黒酢酢豚</a></p>
+          <p class="spicy">辛さ: ★☆☆☆☆</p>
+          <p class="price">値段: （未確認）</p>
+        </div>
       </div>
+    </section>
 
-      <!-- 4 -->
-      <div class="menu-card" data-origin="本場四川風麻婆豆腐">
-        <img src="../images/daily_mapo.jpg" alt="本場四川風麻婆豆腐" />
-        <p class="name"><a href="menu_mapo.html">本場四川風麻婆豆腐</a></p>
-        <p class="spicy">辛さ: ★★★★☆（未確認）</p>
-        <p class="price">値段: ？？？円（未確認）</p>
+    <section class="weekday-section">
+      <div class="weekday-label">水曜日</div>
+      <div class="menu-grid">
+        <div class="menu-card">
+          <img src="../images/sample.jpg" alt="豚レバー四川風煮込み" />
+          <p class="name"><a href="menu1.html">豚レバー四川風煮込み</a></p>
+          <p class="spicy">辛さ: （未確認）</p>
+          <p class="price">値段: 1100円</p>
+        </div>
+        <div class="menu-card">
+          <img src="../images/sample.jpg" alt="牛肉黒胡椒炒め" />
+          <p class="name"><a href="menu1.html">牛肉黒胡椒炒め</a></p>
+          <p class="spicy">辛さ: ★★☆☆☆</p>
+          <p class="price">値段: 1100円</p>
+        </div>
+        <div class="menu-card">
+          <img src="../images/木須肉.jpg" alt="木須肉" />
+          <p class="name"><a href="menu1.html">木须肉（豚肉卵キクラゲ炒め）</a></p>
+          <p class="spicy">辛さ: ☆☆☆☆☆</p>
+          <p class="price">値段: 980円</p>
+        </div>
+        <div class="menu-card">
+          <img src="../images/塩煎肉.jpg" alt="塩煎肉" />
+          <p class="name"><a href="menu1.html">盐煎肉（豚肉とニンニクの芽塩炒め）</a></p>
+          <p class="spicy">辛さ: ★★★☆☆</p>
+          <p class="price">値段: 1050円</p>
+        </div>
+        <div class="menu-card">
+          <img src="../images/辣子鶏丁.jpg" alt="辣子鶏丁" />
+          <p class="name"><a href="menu1.html">辣子鸡丁（鶏肉角切り唐辛子炒め）</a></p>
+          <p class="spicy">辛さ: ★★★☆☆</p>
+          <p class="price">値段: 1050円</p>
+        </div>
       </div>
+    </section>
 
-      <!-- 5 -->
-      <div class="menu-card" data-origin="マーラー香鍋/マーラーシャンゴォ">
-        <img src="../images/daily_mala_pot.jpg" alt="マーラー香鍋" />
-        <p class="name"><a href="menu_mala_pot.html">マーラー香鍋</a></p>
-        <p class="spicy">辛さ: ★★★★☆（未確認）</p>
-        <p class="price">値段: ？？？円（未確認）</p>
+    <section class="weekday-section">
+      <div class="weekday-label">木曜日</div>
+      <div class="menu-grid">
+        <div class="menu-card">
+          <img src="../images/香辣肉糸.jpg" alt="香辣肉絲" />
+          <p class="name"><a href="menu1.html">香辣肉丝（豚肉細切り香り炒め）</a></p>
+          <p class="spicy">辛さ: ★★★☆☆</p>
+          <p class="price">値段: 1050円</p>
+        </div>
+        <div class="menu-card">
+          <img src="../images/sample.jpg" alt="牛肉オイスターソース炒め" />
+          <p class="name"><a href="menu1.html">牛肉オイスターソース炒め</a></p>
+          <p class="spicy">辛さ: ☆☆☆☆☆</p>
+          <p class="price">値段: 1100円</p>
+        </div>
+        <div class="menu-card">
+          <img src="../images/sample.jpg" alt="トマトと卵炒め" />
+          <p class="name"><a href="menu1.html">トマトと卵炒め</a></p>
+          <p class="spicy">辛さ: ☆☆☆☆☆</p>
+          <p class="price">値段: 980円</p>
+        </div>
+        <div class="menu-card">
+          <img src="../images/sample.jpg" alt="毛血旺" />
+          <p class="name"><a href="menu1.html">毛血旺（鴨の血固め辛煮）</a></p>
+          <p class="spicy">辛さ: ★★★★☆</p>
+          <p class="price">値段: 1100円</p>
+        </div>
+        <div class="menu-card">
+          <img src="../images/魚香茄子.jpg" alt="魚香茄子" />
+          <p class="name"><a href="menu1.html">鱼香茄子（茄子と挽肉魚香炒め）</a></p>
+          <p class="spicy">辛さ: ★★★☆☆</p>
+          <p class="price">値段: 1050円</p>
+        </div>
       </div>
+    </section>
 
-      <!-- 6 -->
-      <div class="menu-card" data-origin="酢豚">
-        <img src="../images/daily_subuta.jpg" alt="酢豚" />
-        <p class="name"><a href="menu_subuta.html">スブタ（酢豚）</a></p>
-        <p class="spicy">辛さ: ☆☆☆☆☆（未確認）</p>
-        <p class="price">値段: ？？？円（未確認）</p>
+    <section class="weekday-section">
+      <div class="weekday-label">金曜日</div>
+      <div class="menu-grid">
+        <div class="menu-card">
+          <img src="../images/回鍋肉.jpg" alt="回鍋肉" />
+          <p class="name"><a href="menu1.html">回鍋肉</a></p>
+          <p class="spicy">辛さ: ★☆☆☆☆</p>
+          <p class="price">値段: 980円</p>
+        </div>
+        <div class="menu-card">
+          <img src="../images/sample.jpg" alt="麻婆春雨" />
+          <p class="name"><a href="menu1.html">麻婆春雨</a></p>
+          <p class="spicy">辛さ: （未確認）</p>
+          <p class="price">値段: （未確認）</p>
+        </div>
+        <div class="menu-card">
+          <img src="../images/sample.jpg" alt="鶏肉黒酢あんかけ" />
+          <p class="name"><a href="menu1.html">鶏肉黒酢あんかけ</a></p>
+          <p class="spicy">辛さ: ☆☆☆☆☆</p>
+          <p class="price">値段: （未確認）</p>
+        </div>
+        <div class="menu-card">
+          <img src="../images/sample.jpg" alt="干し豆腐と青唐辛子炒め" />
+          <p class="name"><a href="menu1.html">干し豆腐と青唐辛子炒め</a></p>
+          <p class="spicy">辛さ: （未確認）</p>
+          <p class="price">値段: （未確認）</p>
+        </div>
+        <div class="menu-card">
+          <img src="../images/sample.jpg" alt="牛ハチノス四川風炒め" />
+          <p class="name"><a href="menu1.html">牛ハチノス四川風炒め</a></p>
+          <p class="spicy">辛さ: （未確認）</p>
+          <p class="price">値段: （未確認）</p>
+        </div>
       </div>
+    </section>
 
-      <!-- 7 -->
-      <div class="menu-card" data-origin="ラム肉の鉄板焼き/炒め">
-        <img src="../images/daily_lamb.jpg" alt="ラム肉の鉄板焼き" />
-        <p class="name"><a href="menu_lamb.html">ラム肉の鉄板焼き</a></p>
-        <p class="spicy">辛さ: ★★☆☆☆（未確認）</p>
-        <p class="price">値段: ？？？円（未確認）</p>
+    <!-- 戻る -->
+    <a href="../index.html" class="back-button" aria-label="ホームに戻る">
+      <div class="back-icon-wrapper">
+        <img src="../images/homura_icon.png" alt="" />
+        <span class="back-label">一覧に戻る</span>
       </div>
-
-      <!-- 8 -->
-      <div class="menu-card" data-origin="若鶏の唐揚げ">
-        <img src="../images/daily_karaage.jpg" alt="若鶏の唐揚げ" />
-        <p class="name"><a href="menu_karaage.html">若鶏の唐揚げ</a></p>
-        <p class="spicy">辛さ: ☆☆☆☆☆（未確認）</p>
-        <p class="price">値段: ？？？円（未確認）</p>
-      </div>
-
-      <!-- 9 -->
-      <div class="menu-card" data-origin="豚ミミのラー油和え">
-        <img src="../images/daily_pig_ear.jpg" alt="豚ミミのラー油和え" />
-        <p class="name"><a href="menu_pig_ear.html">豚ミミのラー油和え</a></p>
-        <p class="spicy">辛さ: ★★☆☆☆（未確認）</p>
-        <p class="price">値段: ？？？円（未確認）</p>
-      </div>
-
-      <!-- 10 -->
-      <div class="menu-card" data-origin="エビのチリソース">
-        <img src="../images/daily_ebi_chili.jpg" alt="エビのチリソース" />
-        <p class="name"><a href="menu_ebi_chili.html">エビのチリソース</a></p>
-        <p class="spicy">辛さ: ★★☆☆☆（未確認）</p>
-        <p class="price">値段: ？？？円（未確認）</p>
-      </div>
-
-      <!-- 11 -->
-      <div class="menu-card" data-origin="魚香茄子">
-        <img src="../images/魚香茄子.jpg" alt="魚香茄子" />
-        <p class="name"><a href="menu_yuxiang_qiezi.html">鱼香茄子（茄子と挽肉の魚香炒め）</a></p>
-        <p class="spicy">辛さ: ★★★☆☆（店掲示の傾向）</p>
-        <p class="price">値段: 1050円（曜日メニュー準拠）</p>
-      </div>
-
-      <!-- 12（任意の枠：必要数だけ複製してOK） -->
-      <div class="menu-card" data-origin="（空き）">
-        <img src="../images/sample.jpg" alt="追加予定の定番" />
-        <p class="name"><a href="menu_template.html">（追加予定の定番）</a></p>
-        <p class="spicy">辛さ: （未確認）</p>
-        <p class="price">値段: （未確認）</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ─────────────────────────────────────────────
-       以下：曜日替わりメニュー（既存を整形・軽微に微修正）
-  ───────────────────────────────────────────── -->
-
-  <section class="weekday-section">
-    <div class="weekday-label">月曜日</div>
-    <div class="menu-grid">
-      <div class="menu-card">
-        <img src="../images/sample.jpg" alt="水煮肉片" />
-        <p><a href="menu1.html">水煮肉片（豚肉四川風煮込み）</a></p>
-        <p>辛さ: （未確認）</p>
-        <p>値段: 1100円</p>
-      </div>
-
-      <div class="menu-card">
-        <img src="../images/sample.jpg" alt="青椒肉絲" />
-        <p><a href="menu1.html">青椒肉丝</a></p>
-        <p>辛さ: ☆☆☆☆☆</p>
-        <p>値段: 980円</p>
-      </div>
-
-      <div class="menu-card">
-        <img src="../images/sample.jpg" alt="レバー四川風炒め" />
-        <p><a href="menu1.html">レバー四川風炒め</a></p>
-        <p>辛さ: （未確認）</p>
-        <p>値段: 1050円</p>
-      </div>
-
-      <div class="menu-card">
-        <img src="../images/sample.jpg" alt="豚肉とニンニクの芽炒め" />
-        <p><a href="menu1.html">豚肉とニンニクの芽炒め</a></p>
-        <p>辛さ: ★★☆☆☆</p>
-        <p>値段: 1050円</p>
-      </div>
-
-      <div class="menu-card">
-        <img src="../images/sample.jpg" alt="酱爆鸡丁" />
-        <p><a href="menu1.html">酱爆鸡丁（鶏肉甘味噌炒め）</a></p>
-        <p>辛さ: （未確認）</p>
-        <p>値段: 1050円</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="weekday-section">
-    <div class="weekday-label">火曜日</div>
-    <div class="menu-grid">
-      <div class="menu-card">
-        <img src="../images/sample.jpg" alt="水煮魚" />
-        <p><a href="menu1.html">水煮鱼（魚四川風煮込み）</a></p>
-        <p>辛さ: （未確認）</p>
-        <p>値段: 1050円</p>
-      </div>
-
-      <div class="menu-card">
-        <img src="../images/魚香肉糸.jpg" alt="魚香肉絲" />
-        <p><a href="menu1.html">鱼香肉丝（豚肉細切り魚香炒め）</a></p>
-        <p>辛さ: ★★★☆☆</p>
-        <p>値段: 1050円</p>
-      </div>
-
-      <div class="menu-card">
-        <img src="../images/sample.jpg" alt="レバニラ炒め" />
-        <p><a href="menu1.html">レバニラ炒め</a></p>
-        <p>辛さ: （未確認）</p>
-        <p>値段: （未確認）</p>
-      </div>
-
-      <div class="menu-card">
-        <img src="../images/sample.jpg" alt="鶏肉四川風炒め" />
-        <p><a href="menu1.html">鶏肉四川風炒め</a></p>
-        <p>辛さ: （未確認）</p>
-        <p>値段: （未確認）</p>
-      </div>
-
-      <div class="menu-card">
-        <img src="../images/sample.jpg" alt="黒酢酢豚" />
-        <p><a href="menu1.html">黒酢酢豚</a></p>
-        <p>辛さ: ★☆☆☆☆</p>
-        <p>値段: （未確認）</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="weekday-section">
-    <div class="weekday-label">水曜日</div>
-    <div class="menu-grid">
-      <div class="menu-card">
-        <img src="../images/sample.jpg" alt="豚レバー四川風煮込み" />
-        <p><a href="menu1.html">豚レバー四川風煮込み</a></p>
-        <p>辛さ: （未確認）</p>
-        <p>値段: 1100円</p>
-      </div>
-
-      <div class="menu-card">
-        <img src="../images/sample.jpg" alt="牛肉黒胡椒炒め" />
-        <p><a href="menu1.html">牛肉黒胡椒炒め</a></p>
-        <p>辛さ: ★★☆☆☆</p>
-        <p>値段: 1100円</p>
-      </div>
-
-      <div class="menu-card">
-        <img src="../images/木須肉.jpg" alt="木須肉" />
-        <p><a href="menu1.html">木须肉（豚肉卵キクラゲ炒め）</a></p>
-        <p>辛さ: ☆☆☆☆☆</p>
-        <p>値段: 980円</p>
-      </div>
-
-      <div class="menu-card">
-        <img src="../images/塩煎肉.jpg" alt="塩煎肉" />
-        <p><a href="menu1.html">盐煎肉（豚肉とニンニクの芽塩炒め）</a></p>
-        <p>辛さ: ★★★☆☆</p>
-        <p>値段: 1050円</p>
-      </div>
-
-      <div class="menu-card">
-        <img src="../images/辣子鶏丁.jpg" alt="辣子鶏丁" />
-        <p><a href="menu1.html">辣子鸡丁（鶏肉角切り唐辛子炒め）</a></p>
-        <p>辛さ: ★★★☆☆</p>
-        <p>値段: 1050円</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="weekday-section">
-    <div class="weekday-label">木曜日</div>
-    <div class="menu-grid">
-      <div class="menu-card">
-        <img src="../images/香辣肉糸.jpg" alt="香辣肉絲" />
-        <p><a href="menu1.html">香辣肉丝（豚肉細切り香り炒め）</a></p>
-        <p>辛さ: ★★★☆☆</p>
-        <p>値段: 1050円</p>
-      </div>
-
-      <div class="menu-card">
-        <img src="../images/sample.jpg" alt="牛肉オイスターソース炒め" />
-        <p><a href="menu1.html">牛肉オイスターソース炒め</a></p>
-        <p>辛さ: ☆☆☆☆☆</p>
-        <p>値段: 1100円</p>
-      </div>
-
-      <div class="menu-card">
-        <img src="../images/sample.jpg" alt="トマトと卵炒め" />
-        <p><a href="menu1.html">トマトと卵炒め</a></p>
-        <p>辛さ: ☆☆☆☆☆</p>
-        <p>値段: 980円</p>
-      </div>
-
-      <div class="menu-card">
-        <img src="../images/sample.jpg" alt="毛血旺" />
-        <p><a href="menu1.html">毛血旺（鴨の血固め辛煮）</a></p>
-        <p>辛さ: ★★★★☆</p>
-        <p>値段: 1100円</p>
-      </div>
-
-      <div class="menu-card">
-        <img src="../images/魚香茄子.jpg" alt="魚香茄子" />
-        <p><a href="menu1.html">鱼香茄子（茄子と挽肉魚香炒め）</a></p>
-        <p>辛さ: ★★★☆☆</p>
-        <p>値段: 1050円</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="weekday-section">
-    <div class="weekday-label">金曜日</div>
-    <div class="menu-grid">
-      <div class="menu-card">
-        <img src="../images/回鍋肉.jpg" alt="回鍋肉" />
-        <p><a href="menu1.html">回鍋肉</a></p>
-        <p>辛さ: ★☆☆☆☆</p>
-        <p>値段: 980円</p>
-      </div>
-
-      <div class="menu-card">
-        <img src="../images/sample.jpg" alt="麻婆春雨" />
-        <p><a href="menu1.html">麻婆春雨</a></p>
-        <p>辛さ: （未確認）</p>
-        <p>値段: （未確認）</p>
-      </div>
-
-      <div class="menu-card">
-        <img src="../images/sample.jpg" alt="鶏肉黒酢あんかけ" />
-        <p><a href="menu1.html">鶏肉黒酢あんかけ</a></p>
-        <p>辛さ: ☆☆☆☆☆</p>
-        <p>値段: （未確認）</p>
-      </div>
-
-      <div class="menu-card">
-        <img src="../images/sample.jpg" alt="干し豆腐と青唐辛子炒め" />
-        <p><a href="menu1.html">干し豆腐と青唐辛子炒め</a></p>
-        <p>辛さ: （未確認）</p>
-        <p>値段: （未確認）</p>
-      </div>
-
-      <div class="menu-card">
-        <img src="../images/sample.jpg" alt="牛ハチノス四川風炒め" />
-        <p><a href="menu1.html">牛ハチノス四川風炒め</a></p>
-        <p>辛さ: （未確認）</p>
-        <p>値段: （未確認）</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- 戻るボタン -->
-  <a href="../index.html" class="back-button" aria-label="ホームに戻る">
-    <div class="back-icon-wrapper">
-      <img src="../images/homura_icon.png" alt="" />
-      <span class="back-label">一覧に戻る</span>
-    </div>
-  </a>
+    </a>
+  </div>
 </body>
 </html>
