@@ -109,17 +109,4 @@ h2{ margin: 0 0 24px; font-size: 18px; color:#444; }
 
 .spicy, .price{ color: var(--muted); }
 
-/* ===== 戻るボタン（簡易） ===== */
-.back-button{
-  display: inline-flex;
-  align-items: center;
-  gap: .6rem;
-  margin: 8px 0 0;
-  text-decoration: none;
-  color: #0366d6;
-  font-weight: 600;
-}
-.back-icon-wrapper img{
-  width: 24px; height: 24px; border-radius: 50%;
-}
-.back-label{ line-height: 1; }
+
