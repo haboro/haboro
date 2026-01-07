@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>読書リスト管理</title>
+  <script>
+    // GitHub Pages SPA routing fix
+    // This script redirects 404s to the index.html with the original path
+    const path = window.location.pathname;
+    const pathSegments = path.split('/').filter(Boolean);
+    
+    // Check if we're in the reading-list subdirectory
+    if (pathSegments.includes('reading-list')) {
+      // Redirect to index.html and let React handle the routing
+      window.location.href = '/haboro/reading-list/';
+    }
+  </script>
+</head>
+<body>
+  <p>Redirecting...</p>
+</body>
+</html>
