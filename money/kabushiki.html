@@ -1,1 +1,174 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>株式投資シミュレーター</title>
+    <style>
+        /* 画面の視認性を重視し、コントラストが高く大きめの文字サイズを指定しています */
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f4f7f6;
+            color: #1a1a1a;
+            line-height: 1.6;
+            padding: 20px;
+            font-size: 18px; 
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            font-size: 1.6em;
+            text-align: center;
+            color: #2c3e50;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 10px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        input[type="text"], input[type="date"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #bdc3c7;
+            border-radius: 4px;
+            font-size: 1em;
+            box-sizing: border-box;
+        }
+        input[type="text"]:focus, input[type="date"]:focus {
+            border-color: #2980b9;
+            outline: none;
+        }
+        button {
+            width: 100%;
+            padding: 15px;
+            background-color: #2980b9;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1em;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #3498db;
+        }
+        #result-box {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #e8f8f5;
+            border-left: 6px solid #1abc9c;
+            border-radius: 4px;
+            display: none; /* 初期状態では非表示 */
+        }
+        #result-box.error {
+            background-color: #fadbd8;
+            border-left-color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
 
+<div class="container">
+    <h1>株式投資シミュレーター (ベータ版)</h1>
+    
+    <div class="form-group">
+        <label for="ticker">銘柄コード (ティッカーシンボル)</label>
+        <input type="text" id="ticker" placeholder="例: SPY, TSLA, AAPL" value="SPY">
+    </div>
+
+    <div class="form-group">
+        <label for="target-date">購入日を想定する過去の日付</label>
+        <input type="date" id="target-date">
+        <small style="color: #666;">※土日祝日は株式市場が閉まっているため、平日の日付を選択してください。</small>
+    </div>
+
+    <button id="fetch-btn">過去の株価を取得する</button>
+
+    <div id="result-box">
+        <p id="result-message"></p>
+    </div>
+</div>
+
+<script>
+    // Alpha Vantageの無料APIキー（ご自身で取得したものに置き換えてください）
+    // デモ用に "demo" を使用していますが、指定できる銘柄（IBM等）に強い制限があります。
+    // 本格的にテストする際は https://www.alphavantage.co/ で無料キーを取得してください。
+    const API_KEY = 'demo'; 
+
+    document.getElementById('fetch-btn').addEventListener('click', async () => {
+        const ticker = document.getElementById('ticker').value.trim().toUpperCase();
+        const targetDate = document.getElementById('target-date').value;
+        const resultBox = document.getElementById('result-box');
+        const resultMessage = document.getElementById('result-message');
+
+        // 入力チェック
+        if (!ticker || !targetDate) {
+            showResult('銘柄コードと日付の両方を入力してください。', true);
+            return;
+        }
+
+        resultBox.style.display = 'block';
+        resultBox.classList.remove('error');
+        resultMessage.innerHTML = '株価データを取得中...';
+
+        try {
+            // Alpha Vantageの「日足データ（TIME_SERIES_DAILY）」APIを呼び出す
+            const url = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${ticker}&apikey=${API_KEY}`;
+            const response = await fetch(url);
+            const data = await response.json();
+
+            // エラーハンドリング（APIの制限や銘柄間違い）
+            if (data['Error Message']) {
+                throw new Error('銘柄が見つからないか、APIリクエストに失敗しました。');
+            }
+            if (data['Information'] && data['Information'].includes('rate limit')) {
+                throw new Error('APIの無料利用枠（1日の上限）に達しました。');
+            }
+
+            const timeSeries = data['Time Series (Daily)'];
+            
+            if (!timeSeries) {
+                throw new Error('データが取得できませんでした。');
+            }
+
+            // 指定した日付のデータが存在するかチェック
+            if (timeSeries[targetDate]) {
+                const closePrice = timeSeries[targetDate]['4. close'];
+                showResult(`<strong>${ticker}</strong> の ${targetDate} の終値は <strong>$${parseFloat(closePrice).toFixed(2)}</strong> です。`, false);
+            } else {
+                showResult(`${targetDate} のデータが見つかりません。（土日祝日、または古すぎる日付の可能性があります）`, true);
+            }
+
+        } catch (error) {
+            showResult(error.message, true);
+        }
+    });
+
+    // 結果表示用のヘルパー関数
+    function showResult(message, isError) {
+        const resultBox = document.getElementById('result-box');
+        const resultMessage = document.getElementById('result-message');
+        
+        resultMessage.innerHTML = message;
+        if (isError) {
+            resultBox.classList.add('error');
+        } else {
+            resultBox.classList.remove('error');
+        }
+    }
+</script>
+
+</body>
+</html>
