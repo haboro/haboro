@@ -6,7 +6,6 @@
  */
 window.TRAVEL_PLACES = [
   { id: "wakkanai", name: "稚内", roman: "WAKKANAI", region: "道北", lat: 45.4156, lng: 141.6730, memories: [
-     {
     date: "2022-09",
     title: "2022年夏の稚内",
     summary: "音威子府への行きがけ",
@@ -22,7 +21,6 @@ window.TRAVEL_PLACES = [
     title: "2024年夏の稚内",
     summary: "SSA道北",
     body: "aここに旅行の思い出を自由に記述します。",
-     }
 
   ]},
 
