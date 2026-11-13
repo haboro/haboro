@@ -22,12 +22,9 @@ window.TRAVEL_PLACES = [
     title: "2024年夏の稚内",
     summary: "SSA道北",
     body: "aここに旅行の思い出を自由に記述します。",
-     
-     
      }
-]
 
-  ] },
+  ]},
 
 
   
