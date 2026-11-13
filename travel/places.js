@@ -5,24 +5,33 @@
  * memories accepts title, summary, body, date, photos, tags.
  */
 window.TRAVEL_PLACES = [
-  { id: "wakkanai", name: "稚内", roman: "WAKKANAI", region: "道北", lat: 45.4156, lng: 141.6730, memories: [
-    date: "2022-09",
-    title: "2022年夏の稚内",
-    summary: "音威子府への行きがけ",
-    body: "ここに旅行の思い出を自由に記述します。",
-    /*photos: [
-      {
-        src: "photos/rumoi2019.jpg",
-        alt: "留萌の風景"
-      }
-    ], */
-    { ... }
-    date: "2024-09",
-    title: "2024年夏の稚内",
-    summary: "SSA道北",
-    body: "aここに旅行の思い出を自由に記述します。",
+ 
+{
+  id: "wakkanai",
+  name: "稚内",
+  roman: "WAKKANAI",
+  region: "道北",
+  lat: 45.4156,
+  lng: 141.6730,
 
-  ]},
+  memories: [
+    {
+      date: "2022-09",
+      title: "2022年夏の稚内",
+      summary: "音威子府への行きがけ",
+      body: "ここに旅行の思い出を自由に記述します。",
+      photos: []
+    },
+    {
+      date: "2024-09",
+      title: "2024年夏の稚内",
+      summary: "SSA道北",
+      body: "aここに旅行の思い出を自由に記述します。",
+      photos: []
+    }
+  ]
+},
+
 
 
   
