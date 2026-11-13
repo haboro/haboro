@@ -1,9 +1,8 @@
 /*
- * 旅の内容はこのファイルだけ編集すれば更新できます。
- * memories の中に複数の旅行記を登録できます。写真は photos/ に置いて相対パスを記載してください。
- * 記載例は README.md を参照してください。
- *
- * lat / lng は地名の代表地点。必要なら訪問先の実際の座標に変更できます。
+ * Ortsdaten / 都市別データ / place data.
+ * name = 日本語表記, roman = transliteration (German/English interface).
+ * Erinnerungen können als einfacher Text oder als { de, ja, en } eingetragen werden.
+ * memories accepts title, summary, body, date, photos, tags.
  */
 window.TRAVEL_PLACES = [
   { id: "wakkanai", name: "稚内", roman: "WAKKANAI", region: "道北", lat: 45.4156, lng: 141.6730, memories: [] },
@@ -11,6 +10,7 @@ window.TRAVEL_PLACES = [
   { id: "otoineppu", name: "音威子府", roman: "OTOINEPPU", region: "道北", lat: 44.7295, lng: 142.2635, memories: [] },
   { id: "haboro", name: "羽幌", roman: "HABORO", region: "道北", lat: 44.3615, lng: 141.6960, memories: [] },
   { id: "rumoi", name: "留萌", roman: "RUMOI", region: "道北", lat: 43.9386, lng: 141.6372, memories: [] },
+  { id: "horokanai", name: "幌加内", roman: "HOROKANAI", region: "道北", lat: 44.0098, lng: 142.1515, memories: [] },
   { id: "nayoro", name: "名寄", roman: "NAYORO", region: "道北", lat: 44.3508, lng: 142.4578, memories: [] },
   { id: "monbetsu", name: "紋別", roman: "MONBETSU", region: "道北", lat: 44.3561, lng: 143.3541, memories: [] },
   { id: "asahikawa", name: "旭川", roman: "ASAHIKAWA", region: "道北", lat: 43.7708, lng: 142.3650, memories: [] },

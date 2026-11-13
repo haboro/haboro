@@ -1,88 +1,92 @@
-# 旅の記憶 — Travel Atlas
+# Travel Atlas — 北海道版 v2 / Hokkaidō v2
 
-北海道16地点から始める、地図で振り返る個人旅行記です。**GitHub Pagesでそのまま公開できる静的サイト**です。サーバー、ビルド、データベースは不要です。
+GitHub Pages 対応の静的サイトです。HTML・CSS・JavaScriptだけで動作し、ビルドは不要です。
 
-## 使い方
+## v2 で追加した機能
 
-1. `index.html`, `styles.css`, `app.js`, `places.js`, `photos/` をGitHubのリポジトリのルートに入れる。
-2. GitHubのリポジトリの **Settings → Pages → Build and deployment → Deploy from a branch** を選択。
-3. Branchを `main`、Folderを `/ (root)` に設定して保存する。
-4. 公開されたURLへアクセスする。
+- **言語切替**：ページ左上の `DE / 日本語 / EN` から切替。初期表示は必ずドイツ語です（ブラウザ言語とは独立）。サイトのUI、地名表記、空欄の案内、検索欄、旅行名が切り替わります。
+- **都市別モード**：北海道の17地点。新しく幌加内を追加しました。
+- **旅行別モード**：2019年（留萌・羽幌・幌加内・富良野・旭川）／2022年（苫小牧・池田・釧路・網走・紋別）の2旅行を試験収録。旅行を構成する都市を含む**回転した楕円形の領域**が地図上に表示され、ホバーで概要、クリックで旅行の詳細が開きます。左側の旅行一覧からも開けます。
+- 旅行別モードの地図楕円は指定都市をすべて含む**概略範囲**で、実際の交通経路や正確な移動範囲を表すものではありません。
+- **苫小牧・池田・網走**は旅行別モードの「訪問地」としてのみ登録しています。都市別一覧には含まれません。
+- 言語切替・モード切替・検索・旅行の詳細・URL直接リンク・モバイルレイアウトに対応。
 
-## ローカルでのプレビュー（重要）
+## ファイル構成
 
-OpenStreetMap の地図画像は HTTP Referer ヘッダーがないアクセスをブロックするため、`index.html` をダブルクリックして **`file://` で開くと地図が 403 エラーになる場合があります**。これはブラウザとタイル配信元の仕様で、サイトの記録データには問題ありません。
+```text
+index.html              GitHub Pages 用のトップページ
+travel_hub_new.html     上記と同内容のHTML（従来のファイル名に合わせたもの）
+styles.css               共通スタイル
+app.js                   地図／言語／モードの処理
+places.js                都市データ、都市ごとの記録
+trips.js                 旅行データ、旅行のみの訪問地
+photos/                  写真ファイルの保存先
+```
 
-Windows では、展開したフォルダをエクスプローラーで開き、アドレス欄に `cmd` と入力して Enter を押し、以下を実行してください（Python がインストールされている場合）。
+**両方のHTMLを同じフォルダに置く必要はありません。** 既存サイトの `travel_hub_new.html` を更新する場合は、同名ファイルに上書きし、`styles.css`、`app.js`、`places.js` を更新、`trips.js` を追加してください。GitHub PagesでサイトのルートURL（`...github.io/.../`）からアクセスしたい場合は `index.html` も配置してください。HTMLのどちらもJS/CSSの**相対パス**を参照するので、HTMLから見て同じフォルダ階層に置いてください。
 
-```sh
+## 公開
+
+1. HTML、CSS、JS、`photos/` をGitHubリポジトリへアップロード。
+2. `Settings → Pages → Deploy from a branch` で `main` の `/ (root)` を指定。
+3. `https://ユーザー名.github.io/リポジトリ名/` で `index.html` を、`.../travel_hub_new.html` で名前を付けたページを表示できます。
+
+## ローカル確認
+
+OpenStreetMapの地図タイルは `file://`（HTMLダブルクリック）で拒否されることがあります。フォルダを開いてターミナルから、Pythonがあれば以下を実行してください。
+
+```bash
 py -m http.server 8000
 ```
 
-その後、ブラウザで **http://localhost:8000/** を開きます。終了はコマンドプロンプトで `Ctrl+C`。Python がない場合は VS Code の Live Server などで HTTP サーバーを起動してください。
+ブラウザで `http://localhost:8000/` または `http://localhost:8000/travel_hub_new.html` を開きます。
 
-GitHub Pages 上では通常 Referer が送信されるため、ローカル直開きより正常に表示されやすくなります。ただし OSM 側の制限やネットワーク環境によっては表示が拒否される可能性があります。
+## 都市の記録の追加（places.js）
 
-※ 地図・フォント・Leaflet の読み込みにはインターネット接続が必要です。
+各都市の `memories: []` に記録を追加します。
 
-## 思い出の追加
+```javascript
+memories: [
+  {
+    date: "2019-08", // 例。実際の日付に置き換えてください
+    title: {de: "Ein Reisetag", ja: "旅の日の記録", en: "A day of travel"},
+    summary: {de: "Kurze Vorschau", ja: "ホバー時の概要", en: "Brief preview"},
+    body: {de: "Reisetext", ja: "旅行の本文", en: "Travel journal"},
+    photos: [{src: "photos/sample.jpg", alt: {de: "Aussicht", ja: "旅先の景色", en: "Scenery"}}],
+    tags: ["鉄道", "北海道"]
+  }
+]
+```
 
-**`places.js` のみ**を編集します。例えば、稚内の `memories: []` を次のように書き換えてください。
+文章は `{de, ja, en}` の3言語形式、または**単純な文字列**でも登録できます。3言語のどれかが未設定の場合は日本語→英語→ドイツ語の順で存在する内容を表示します（自動翻訳は行いません）。都市の登録項目は `id, name, roman, region, lat, lng, memories` です。地域フィルタは道北／道央／道東です。
 
-```js
+## 旅行の追加（trips.js）
+
+`window.TRAVEL_TRIPS` に旅行オブジェクトを追加します。`stopIds` の地名IDは `places.js` 内、または `TRAVEL_WAYPOINTS` 内に定義してください。
+
+```javascript
 {
-  id: "wakkanai",
-  name: "稚内",
-  roman: "WAKKANAI",
-  region: "道北",
-  lat: 45.4156,
-  lng: 141.6730,
-  memories: [
-    {
-      date: "2025-08-15", // 任意。年-月、または年-月-日
-      title: "旅の日のタイトル",
-      summary: "マウスを重ねたときに表示する短い紹介文。",
-      body: "ここに旅の本文を書きます。\n改行もできます。",
-      photos: [
-        { src: "photos/wakkanai-01.jpg", alt: "撮影した景色" },
-        { src: "photos/wakkanai-02.jpg", alt: "旅先の食事" }
-      ],
-      tags: ["夏の旅", "鉄道"]
-    },
-    {
-      date: "2024-02",
-      title: "以前の訪問",
-      summary: "2回目の記録も表示できます。",
-      body: "前に訪れたときの思い出。",
-      photos: [],
-      tags: []
-    }
-  ]
+  id: "hokkaido-2025", // 既存と重複しないID
+  year: 2025,
+  title: {de: "Hokkaidō-Reise 2025", ja: "2025年 北海道旅行", en: "Hokkaido Journey 2025"},
+  stopIds: ["otaru", "asahikawa", "furano"],
+  color: "#718a56", // 任意の6桁16進カラー
+  summary: {de: "", ja: "", en: ""},
+  body: {de: "", ja: "", en: ""},
+  photos: [{src: "photos/example.jpg", alt: "旅行の写真"}],
+  tags: []
 }
 ```
 
-- `date`, `title`, `summary`, `body`, `photos`, `tags` は任意。未設定でも動きます。
-- `memories` に複数のオブジェクトを入れると、同じ場所の複数回の旅行記を表示できます。
-- `photos` は単純に `"photos/sample.jpg"` のような文字列でも指定できます。写真ファイルは `photos/` に追加します。
-- 記録が空の土地は、地図・一覧には表示され、詳細には「記録を追加してください」と表示されます。
-- 地名や座標を新規追加すると、地図と一覧に自動で反映します。地域は現在 `道北` / `道央` / `道東` の3種類で、別の地域を追加する場合は `index.html` のフィルターボタンにも追加してください。
-- 各地点の `lat` / `lng` はその土地の代表地点であり、実際の宿・訪問地を示すものではありません。必要に応じて調整してください。
+- `year` だけでもよく、旅行の日付・本文・写真は後から追加できます。
+- 楕円はすべての `stopIds` の地理座標から計算します。訪問地を追加すると楕円の形状が自動更新されます。
+- 現在の地図は単一の旅行に対して1つの楕円を描く方式です。飛び地など、広く離れた地点を含めると楕円も広くなります。
+- 同じ地点を複数旅行で使っても問題ありません。
 
-## 操作
+## URL直接リンク
 
-- 地図上の点をホバー：地名・地域・最新の旅行記の概要が表示されます。
-- 地図上の点、または左側の地名をクリック：旅の詳細を開きます。
-- 「北海道 / 日本全体」：地図の縮尺を切り替えます。
-- 地名検索、道北/道央/道東の絞り込み、地図の拡大縮小、スマートフォン対応。
-- `/` キー：検索欄にフォーカス。 `Esc`：詳細を閉じる。
-- 各地名の詳細には `#wakkanai` のようなURLで直接アクセスできます。
+都市は `#wakkanai`、旅行は `#trip-hokkaido-2019` で直接詳細を開けます。アクセス時に必要なモードへ自動切替します。
 
-## 掲載地点
+## 技術と地図利用
 
-稚内、豊富温泉、音威子府、羽幌、留萌、名寄、紋別、旭川、標津、富良野、帯広、釧路、厚岸、えりも、小樽、阿寒湖。
-
-## 技術とクレジット
-
-HTML / CSS / vanilla JavaScript と [Leaflet](https://leafletjs.com/) 1.9.4 を利用。地図タイルは OpenStreetMap、地図データの著作権表記は画面内に表示します。Leaflet・フォント・地図タイルの読み込みは外部サービスへのアクセスが必要です。
-
-**注:** 個人用の小規模な地図としての利用を想定しています。大規模アクセスや大量アクセスに使う場合はOpenStreetMapのタイル利用ポリシーを確認してください。
+Leaflet 1.9.4、OpenStreetMap公式タイルを利用します。地図データの著作権表示は地図下部に表示します。Leaflet・フォント・地図は外部インターネット接続が必要です。OpenStreetMapのタイル利用規約に従ってください。
